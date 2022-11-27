@@ -1,0 +1,37 @@
+cc_library_shared {
+    name: "android_hidl.led_hidl.hardware.led@1.0-impl",
+    defaults: ["hidl_defaults"],
+    srcs:["Led.cpp"],
+   // proprietary: true,
+    relative_install_path: "hw",
+    shared_libs: [
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "android.hardware.led@1.0",
+    ]
+}
+
+cc_binary {
+    name: "android_hidl.led_hidl.hardware.led@1.0-service",
+    srcs: [
+        "service.cpp",
+        "Led.cpp",
+    ],
+    //proprietary: true,
+    relative_install_path: "hw",
+    init_rc: ["android.hardware.led@1.0-service.rc"],
+    shared_libs: [
+        "liblog",
+        "libhidlbase",
+        "libbase",
+        "libutils",
+        "libcutils",
+    ],
+    vintf_fragments: ["manifest_android.hardware.led@1.0-service.xml"],
+    cflags: [
+        "-Werror",
+        "-Wall",
+        "-Wno-error=deprecated-declarations",
+    ],
+}
