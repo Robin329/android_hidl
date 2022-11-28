@@ -31,7 +31,7 @@ cc_binary {
         "libcutils",
         "android.led_hidl.hardware.led@1.0",
     ],
-    vintf_fragments: ["manifest_android.led_hidl.hardware.led@1.0-service.xml"],
+    //vintf_fragments: ["manifest_android.led_hidl.hardware.led@1.0-service.xml"],
     cflags: [
         "-Werror",
         "-Wall",

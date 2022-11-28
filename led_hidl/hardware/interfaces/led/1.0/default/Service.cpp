@@ -31,14 +31,14 @@ using android::led_hidl::hardware::led::implementation::Led;
 using android::led_hidl::hardware::led::V1_0::ILed;
 
 int main(int /* argc */, char ** /* argv */) {
-#if 1
+#if 0
   // Passthrought dlopen so method
   return defaultPassthroughServiceImplementation<ILed>();
 #else
   status_t status;
   sp<ILed> service = new Led();
   configureRpcThreadpool(1, true /* calllerWillJoin */);
-  status = service->registerAsService("Led");
+  status = service->registerAsService();
   if (android::OK != status) {
     ALOGE("Could not register service for led(%d)", status);
     return 1;

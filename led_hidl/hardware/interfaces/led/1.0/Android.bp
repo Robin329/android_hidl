@@ -3,7 +3,7 @@
 hidl_interface {
     name: "android.led_hidl.hardware.led@1.0",
     root: "android.led_hidl.hardware",
-    system_ext_specific: true,
+    //system_ext_specific: true,
     srcs: [
         "types.hal",
         "ILed.hal",

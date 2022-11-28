@@ -1,4 +1,4 @@
-service led-hal-1-0 /vendor/bin/hw/android.hardware.led@1.0-service
+service led-hal-1-0 /vendor/bin/hw/android.led_hidl.hardware.led@1.0-service
     class hal
     user system
     group system
