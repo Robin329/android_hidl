@@ -7,8 +7,8 @@ interface ILed
 
   //set led status
   set(LedStatus  val) generates(int32_t  ret);
-  getBrightnessRange() generates(bool ret,BrightnessRange range);
-  setBrightnessValue(vec<int32_t> range) generates(bool ret);
+  getBrightnessRange() generates(bool ret,LedState range);
+  setBrightnessValue(LedState state) generates(bool ret);
   on() ;
   off() ;
 };

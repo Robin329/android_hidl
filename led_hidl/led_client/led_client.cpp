@@ -5,8 +5,8 @@
 
 using android::sp;
 using android::hardware::hidl_vec;
-using android::led_hidl::hardware::led::V1_0::BrightnessRange;
 using android::led_hidl::hardware::led::V1_0::ILed;
+using android::led_hidl::hardware::led::V1_0::LedState;
 using android::led_hidl::hardware::led::V1_0::LedStatus;
 
 int main() {
@@ -29,14 +29,13 @@ int main() {
   LedStatus ret = service->get();
   ALOGE("ILed get: %d", ret);
 
-  service->getBrightnessRange([](bool ret1, BrightnessRange range) {
+  service->getBrightnessRange([](bool ret1, LedState state) {
     ALOGE("ILed getBrightnessRange ret: %d", ret1);
-    ALOGE("ILed getBrightnessRange Max: %d", range.max);
-    ALOGE("ILed getBrightnessRange Min: %d", range.min);
+    ALOGE("ILed getBrightnessRange Max: %d", state.maxBrightness);
+    ALOGE("ILed getBrightnessRange Min: %d", state.minBrightness);
   });
-  int32_t array[] = {5, 6, 7};
-  hidl_vec<int32_t> hv1 = std::vector<int32_t>(array, array + 3);
-  bool ret2 = service->setBrightnessValue(hv1);
+  LedState state = {0, 0, 1};
+  bool ret2 = service->setBrightnessValue(state);
   ALOGE("ILed getBrightnessValue bool: %d", ret2);
   return 0;
 }

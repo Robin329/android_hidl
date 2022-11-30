@@ -6,6 +6,8 @@ cc_library_shared {
     relative_install_path: "hw",
     shared_libs: [
         "libhidlbase",
+        "libhardware",
+        "libhidltransport",
         "liblog",
         "libbase",
         "libutils",
@@ -26,8 +28,10 @@ cc_binary {
     shared_libs: [
         "liblog",
         "libhidlbase",
+        "libhidltransport",
         "libbase",
         "libutils",
+        "libhardware",
         "libcutils",
         "android.led_hidl.hardware.led@1.0",
     ],

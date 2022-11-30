@@ -31,7 +31,7 @@ using android::led_hidl::hardware::led::implementation::Led;
 using android::led_hidl::hardware::led::V1_0::ILed;
 
 int main(int /* argc */, char ** /* argv */) {
-#if 0
+#if 1
   // Passthrought dlopen so method
   return defaultPassthroughServiceImplementation<ILed>();
 #else
